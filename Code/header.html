@@ -1,0 +1,63 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<header>
+    <div class="slider">
+        <img src="images/slide1.jpg" alt="Slide 1" class="active">
+        <img src="images/slide2.jpg" alt="Slide 2">
+        <img src="images/slide3.jpg" alt="Slide 3">
+        <img src="images/slide4.jpg" alt="Slide 4">
+        <img src="images/slide5.jpg" alt="Slide 5">
+    </div>
+    <div class="main">
+        <div class="logo">
+            <a href="homepage.php">
+                <img src="images/logo.png" alt="Japan Unveiled Logo">
+            </a>
+        </div>
+        <ul class="nav-list">
+            <li class="<?= (basename($_SERVER['PHP_SELF']) == 'homepage.php') ? 'active' : ''; ?>"><a href="homepage.php">Home</a></li>
+            <li class="<?= (basename($_SERVER['PHP_SELF']) == 'region.php') ? 'active' : ''; ?>"><a href="region.php">Places</a></li>
+            <li class="<?= (basename($_SERVER['PHP_SELF']) == 'planner.php') ? 'active' : ''; ?>"><a href="planner.php">Planner</a></li>
+            <li class="<?= (basename($_SERVER['PHP_SELF']) == 'about_us.php') ? 'active' : ''; ?>"><a href="about_us.php">About Us</a></li>
+            <li class="<?= (basename($_SERVER['PHP_SELF']) == 'search.php') ? 'active' : ''; ?>"><a href="search.php">Search Places</a></li>
+            <?php if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in']): ?>
+                <li><a href="logout.php" id="logoutBtn">Logout</a></li>
+            <?php else: ?>
+                <li><a href="login.php">Login</a></li>
+            <?php endif; ?>
+        </ul>
+        <div class="profile_icon">
+            <a href="userprofile.php">
+                <img src="images/profile_icon.png" alt="Profile Icon">
+            </a>
+        </div>
+    </div>
+    <div class="scroll-prompt">⬇️ Scroll Down</div>
+</header>
+
+<script>
+    document.getElementById('logoutBtn')?.addEventListener('click', (event) => {
+        localStorage.clear();
+    });
+    
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slider img');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 5000);
+    showSlide(currentIndex);
+</script>

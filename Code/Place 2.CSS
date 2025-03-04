@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('images/Japan gates.jpg');
+    background-size: cover, cover;
+    background-position: center, center middle;
+    background-repeat: no-repeat, no-repeat;
+    background-color: rgb(199, 138, 138);
+
+    height: 150vh;
+    font-family: Arial, sans-serif;
+    backdrop-filter: blur(3px);
+}
+
+h1{
+    color: white;
+}
+
+
+
+
+.place-container {
+    padding: 20px;
+    text-align: center;
+    color: black;
+    font-size: larger;
+    font-style: italic;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+h2 { 
+    margin-bottom: 25px;
+}
+
+.main-image {
+    width: 600px;
+    height: 630px;
+    margin-left: 26%;
+    margin-bottom: 30px;
+}
+
+.place-img-large {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+.place-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.place-details.reverse {
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.place-img-small {
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 10px; 
+}
+
+.place-details.reverse .place-img-small {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.place-text {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.63);
+    border-radius: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.review-section {
+    margin-top: 40px;
+}
+
+.review-btn {
+    background-color: #FF69B4;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-btn:hover {
+    background-color: #FF1493;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    ul {
+        top: 20px;
+        right: 20px;
+    }
+
+    .place-container {
+        padding: 10px;
+    }
+
+    .place-details {
+        flex-direction: column;
+    }
+
+    .place-img-small {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 15px auto;
+    }
+
+    .place-details.reverse .place-img-small {
+        margin-left: 0;
+    }
+
+    .place-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .review-btn {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .place-img-large {
+        max-width: 100%;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .place-img-small {
+        width: 100%;
+        max-width: 300px;
+    }
+}
